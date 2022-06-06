@@ -146,14 +146,20 @@ workflows:
           filters:
             branches:
               only: main # Commits to main branch
-      - benchmarks-emulator
-      - benchmarks-ftl
       - release-build:
           requires:
             - unit-test
             - android-test-all
-            - benchmarks-emulator
-            - benchmarks-ftl
+          steps:
+            - checkout
+            - android/restore-gradle-cache
+            - android/restore-build-cache
+            - run:
+                name: Assemble release build
+                command: |
+                  ./gradlew assembleRelease
+            - store_artifacts:
+                path: app/build/outputs/apk/release
           filters:
             branches:
               only: main # Commits to main branch
