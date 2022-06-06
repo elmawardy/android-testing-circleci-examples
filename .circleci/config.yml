@@ -150,7 +150,6 @@ workflows:
           requires:
             - unit-test
             - android-test-all
-                  ./gradlew assembleRelease
           filters:
             branches:
               only: main # Commits to main branch
