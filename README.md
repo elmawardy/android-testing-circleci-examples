@@ -1,3 +1,5 @@
+Trigger CircleCI
+
 # Android testing examples with CircleCI
 
 Forked from Android Kotlin Testing Codelab 👇
